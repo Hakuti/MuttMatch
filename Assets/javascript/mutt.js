@@ -361,11 +361,11 @@ $(document).ready(function(){
       });
 
       //On click function that grabs all images of selected dog from modalDogImages array
-      $(document).on("click", ".fas", function(){
+      $(document).on("click", ".uniqueDogImg", function(){
         // $("#innerCarousel").children()[0].children[0].children
         var carouselDiv = $("<div>");
         carouselDiv.addClass("carousel");
-        var currentIndex = $(this)[0].dataset.index;
+        var currentIndex = $(this)[0].parentElement.dataset.index;
 
         // This for each loop iterates on each image of the selected dog
         modalDogImages[currentIndex].forEach(function(n){
