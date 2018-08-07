@@ -2,6 +2,7 @@
 var age = "3";
 var gender = "";
 var breed = "";
+var zip = "";
 
 $(document).ready(function(){
 
@@ -32,6 +33,7 @@ $("#go").on("click", function() {
 // console.log(age);
 // console.log(gender);
 breed = $("#breed").val();
+zip = $("#zip").val();
 // console.log(breed);
 
 if(age =="" || gender == "" || breed == ""){
@@ -42,6 +44,7 @@ else {
     localStorage.setItem("age", age);
     localStorage.setItem("gender", gender);
     localStorage.setItem("breed", breed);
+    localStorage.setItem("zip", zip);
     window.location.href='mutt.html';
 }
     

@@ -12,9 +12,7 @@ $(document).ready(function(){
   age = localStorage.getItem("age");
   breed = capEachWord(localStorage.getItem("breed"));
   gender = localStorage.getItem("gender");
-  // console.log(age);
-  // console.log(breed);
-  // console.log(gender);
+  zip = localStorage.getItem("zip");
 
   //Sets the age to the search argument required by the petfinder API
   if (age == "Puppy"){
@@ -28,6 +26,9 @@ $(document).ready(function(){
     gender = "F"
   }
   console.log(gender);
+  console.log(zip);
+  console.log(age);
+  console.log(breed);
 
   //Variable housing neccessary data for image carousel
   var $carousel = $('#myCar').flickity()
@@ -61,7 +62,7 @@ $(document).ready(function(){
         data: {
             key: petApiKey,
             animal: "dog",
-            "location": "32812",
+            "location": zip,
             age: age,
             sex: gender,
             breed: breed,
@@ -77,7 +78,7 @@ $(document).ready(function(){
             data: {
                 key: petApiKey,
                 animal: "dog",
-                "location": "32812",
+                "location": zip,
                 age: age,
                 sex: gender,
                 breed: breed,
@@ -85,7 +86,6 @@ $(document).ready(function(){
                 format: "json"
             }
         }).then(response=> {
-          console.log(response);
            //Variable that starts at zero, increases for each loop iteration. Used to hold unique info in each modal
             var dogIndex = 0;
             //Array that holds additional pictures of each dog.
