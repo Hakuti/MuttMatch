@@ -4,10 +4,6 @@ $(document).ready(function(){
   .flickity('next')
   .flickity( 'select', 4 );
 
-  var $flkty = $("#innerCarousel").flickity()
-  .flickity('next')
-  .flickity( 'select', 4 );
-
   //Arrays housing information retrieved from ebay api
   //Each array holds 3 item images and links to their URL of dog products according to size
     var smallDogItem = [];
@@ -55,6 +51,7 @@ $(document).ready(function(){
                 format: "json"
             }
         }).then(response=> {
+          console.log(response);
            //Variable that starts at zero, increases for each loop iteration. Used to hold unique info in each modal
             var dogIndex = 0;
             //Array that holds additional pictures of each dog.
@@ -71,8 +68,6 @@ $(document).ready(function(){
                         //Creating a div to hold the image
                         var uniqueDogDiv = $("<div>");
                         var newImg = $("<img>");
-                        //Gets the info icon from FontAwesome
-                        var infoIcon = $("<i class='fas fa-info-circle fa-2x'></i>");
                         //Adds class to work with carousel
                         uniqueDogDiv.addClass("carousel-cell");
                         //setting src of the image of the first full sized image of the dog
@@ -81,13 +76,6 @@ $(document).ready(function(){
                         uniqueDogDiv.attr("data-index", dogIndex);
                         uniqueDogDiv.attr("data-size", j.size.$t);
                         uniqueDogDiv.html(newImg);
-                        //Sets styling for info icon on each image
-                        infoIcon.css("position", "absolute");
-                        infoIcon.css("bottom", "20");
-                        infoIcon.css("right", "50");
-                        infoIcon.css("color", "#017bff");
-                        infoIcon.attr("data-index", dogIndex)
-                        uniqueDogDiv.append(infoIcon)
                         //Appends the image to the carousel
                         $carousel.flickity( 'append', uniqueDogDiv )
                         dogIndex++;
@@ -368,16 +356,35 @@ $(document).ready(function(){
 
       //On click function that grabs all images of selected dog from modalDogImages array
       $(document).on("click", ".uniqueDogImg", function(){
-        var carouselDiv = $("<div>");
-        carouselDiv.addClass("carousel");
+        //Sets the div that will hold the inner carousel
+        var innerCarousel = $("<div id='innerCarousel' class='carousel'>")
+        //Puts the newly declared carousel div into the parent container
+        $("#modalCarouselContainer").html(innerCarousel);
+        //Setting up inner modal carousel to work with flickity
+        var $flkty = $("#innerCarousel").flickity()
+          .flickity('next')
+          .flickity( 'select', 4 );
+
+        //Variable used to index the item pulled from ebay api and append them accordingly
+        var itemIndex = 1;
+
+        //grabs the index of the dog clicked
         var currentIndex = $(this)[0].parentElement.dataset.index;
+
+        //array that will hold all extra images of dog selected
+        var thisDogExtraPics = [];
 
         //HOLDS THE SIZE OF THE DOG CLICKED ON
         var dogSize = ($(this)["0"].parentElement.attributes[2].nodeValue);
         // console.log($(this)["0"].parentElement.attributes);
 
+        //Pushes images of dog slected to thisDogExtraPics array
+        modalDogImages[currentIndex].forEach(function(p){
+          thisDogExtraPics.push(p);
+        })
+
         // This for each loop iterates on each image of the selected dog
-        modalDogImages[currentIndex].forEach(function(n){
+        thisDogExtraPics.forEach(function(n){
           //Creates a new div to hold the dog's images
           var thisDogDiv = $("<div>");
           //Creates a new img tag for each image of the dog
@@ -409,53 +416,79 @@ $(document).ready(function(){
         //Appends the description of the dog to the modal
         $("#dogDescription").text(dogDescription[currentIndex]);
 
+       
         //Determines the size of the dog selected and displays products from Ebay accordingly
-        if (dogSize[currentIndex] == "S"){
+          //If the dog's size is "small", the results from the small dog item search from the ebay API
+          //are appended to the bottom of the modal
+            if (dogSize[currentIndex] == "S"){
           smallDogItem.forEach(function(a){
+            //creates a new div for each ebay item being appended
             var ebayItemDiv = $("<div>");
+            //Creates an img tag for the picture of the item pulled from ebay
             var ebayItemImg = $("<img>");
+            //anchor tag to hold a link to the item on ebay's website
             var embayItemURL = $("<a>");
-            var itemIndex = 1;
 
+            //Setting attribues of the img and anchor tags to their respective item URLs
             ebayItemImg.attr("src", a.imageURL);
             embayItemURL.attr("href", a.itemURL);
+            //Appends the item image to the anchor tag, and the anchor tag to the parent item div
             embayItemURL.append(ebayItemImg);
             ebayItemDiv.append(embayItemURL);
+            //Inserts the item div into the DOM
             $("#ebayItem" + itemIndex).html(ebayItemDiv);
             itemIndex++
           })
         }
+        //If the dog's size is "medium", the results from the medium dog item search the ebay API
+        //are appended to the bottom of the modal
         else if (dogSize[currentIndex] == "M"){
           mediumDogItem.forEach(function(b){
+            //creates a new div for each ebay item being appended
             var ebayItemDiv = $("<div>");
+            //Creates an img tag for the picture of the item pulled from ebay
             var ebayItemImg = $("<img>");
+            //anchor tag to hold a link to the item on ebay's website
             var embayItemURL = $("<a>");
-            var itemIndex = 1;
   
+            //Setting attribues of the img and anchor tags to their respective item URLs
             ebayItemImg.attr("src", b.imageURL);
             embayItemURL.attr("href", b.itemURL);
+            //Appends the item image to the anchor tag, and the anchor tag to the parent item div
             embayItemURL.append(ebayItemImg);
             ebayItemDiv.append(embayItemURL);
+            //Inserts the item div into the DOM
             $("#ebayItem" + itemIndex).html(ebayItemDiv);
             itemIndex++;
           })
         }
+        //If the dog's size is NOT "medium" or "small", the results from the large dog item search the ebay API
+        //are appended to the bottom of the modal
         else {
           largeDogItem.forEach(function(c){
+            //creates a new div for each ebay item being appended
             var ebayItemDiv = $("<div>");
+            //Creates an img tag for the picture of the item pulled from ebay
             var ebayItemImg = $("<img>");
+            //anchor tag to hold a link to the item on ebay's website
             var embayItemURL = $("<a>");
-            var itemIndex = 1;
 
+            //Setting attribues of the img and anchor tags to their respective item URLs
             ebayItemImg.attr("src", c.imageURL);
             embayItemURL.attr("href", c.itemURL);
+            //Appends the item image to the anchor tag, and the anchor tag to the parent item div
             embayItemURL.append(ebayItemImg);
             ebayItemDiv.append(embayItemURL);
+            //Inserts the item div into the DOM
             $("#ebayItem" + itemIndex).html(ebayItemDiv);
             itemIndex++;
           })
         }
       })
+
+      $('#myModal').on('hidden.bs.modal', function () {
+        $("#innerCarousel .flickity-slider").empty();
+      });
 
     
         $("#myCarousel").on( "swipeleft", function( event )
@@ -482,6 +515,6 @@ $(document).ready(function(){
           $("#myCarousel").carousel('next');
           console.log("next")
         } )
-        console.log(smallDogItem);
+        
         
     })
