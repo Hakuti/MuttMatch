@@ -20,9 +20,15 @@ p {
     color: white;
     font-size: 20px;
   }
-  
 
- .container {
+.fas{
+color:white;
+display: block;
+height: 60px;
+
+}  
+ 
+.container {
     /* display: inline; */
     margin: auto;
     text-align: center;
@@ -51,10 +57,7 @@ p {
     /* background: #8C8; */
     border-radius: 5px;
     counter-increment: gallery-cell;
-    
-   
-
-  }
+}
 
  .carousel-cell.is-selected {
      background: #ED2;
