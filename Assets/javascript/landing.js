@@ -25,12 +25,19 @@ $(".gender").on("click",function() {
 
 $("#go").on("click", function() {
 //console.log("Here");
-console.log(age);
-console.log(gender);
+// console.log(age);
+// console.log(gender);
 breed = $("#breed").val();
-console.log(breed);
+// console.log(breed);
+
 if(age =="" || gender == "" || breed == ""){
-    console.log("Not valid");
+
+    
+    //console.log("Not valid");
+    //return false;
+}
+else {
+    window.location.href='mutt.html';
 }
     
 });
