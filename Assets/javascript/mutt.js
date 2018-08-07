@@ -360,18 +360,24 @@ $(document).ready(function(){
 
       //On click function that grabs all images of selected dog from modalDogImages array
       $(document).on("click", ".uniqueDogImg", function(){
-        console.log($("#modalCarouselContainer")[0].childNodes[1].children[0]);
         var itemIndex = 1;
         var carouselDiv = $("<div>");
         carouselDiv.addClass("carousel");
         var currentIndex = $(this)[0].parentElement.dataset.index;
+        var thisDogExtraPics = [];
 
         //HOLDS THE SIZE OF THE DOG CLICKED ON
         var dogSize = ($(this)["0"].parentElement.attributes[2].nodeValue);
         // console.log($(this)["0"].parentElement.attributes);
 
+
+        modalDogImages[currentIndex].forEach(function(p){
+          thisDogExtraPics.push(p);
+        })
+
+
         // This for each loop iterates on each image of the selected dog
-        modalDogImages[currentIndex].forEach(function(n){
+        thisDogExtraPics.forEach(function(n){
           //Creates a new div to hold the dog's images
           var thisDogDiv = $("<div>");
           //Creates a new img tag for each image of the dog
@@ -473,6 +479,10 @@ $(document).ready(function(){
         }
       })
 
+      $('#myModal').on('hidden.bs.modal', function () {
+        $("#innerCarousel .flickity-slider").empty();
+      });
+
     
         $("#myCarousel").on( "swipeleft", function( event )
         {
@@ -498,6 +508,6 @@ $(document).ready(function(){
           $("#myCarousel").carousel('next');
           console.log("next")
         } )
-        console.log(modalDogImages);
+        
         
     })
