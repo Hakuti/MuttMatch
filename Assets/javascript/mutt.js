@@ -361,7 +361,9 @@ $(document).ready(function(){
         //Puts the newly declared carousel div into the parent container
         $("#modalCarouselContainer").html(innerCarousel);
         //Setting up inner modal carousel to work with flickity
-        var $flkty = $("#innerCarousel").flickity()
+        var $flkty = $("#innerCarousel").flickity({
+          pageDots: false
+        })
           .flickity('next')
           .flickity( 'select', 4 );
 
