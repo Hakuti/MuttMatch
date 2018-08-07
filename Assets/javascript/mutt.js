@@ -13,12 +13,16 @@ $(document).ready(function(){
     var smallDogItem = [];
     var mediumDogItem = [];
     var largeDogItem = [];
-
     //Array holding additional images of each unique dog
     var modalDogImages = [];
-
     //Array holding description of each unique dog
     var dogDescription = [];
+    //Array holding the name of each dog
+    var dogName = [];
+    //Array holding age of each dog
+    var dogAge = [];
+    //Arrary holding sex of each dog
+    var dogSex = [];
 
 
     //petfinder api call
@@ -106,6 +110,17 @@ $(document).ready(function(){
                 //The description about this unique dog is pushed to the global array
                 dogDescription.push(j.description.$t);
 
+                //The name of this unique dog is pushed to the global array
+                dogName.push(j.name.$t);
+
+                //The sex of this unique dog is changed to the string "Male" or "Female" and then pushed to the global array
+                if (j.sex.$t == "M"){
+                  dogSex.push("Male");
+                }
+                else if (j.sex.$t == "F"){
+                  dogSex.push("Female");
+                }
+
                 //the array of this unique dog's images are pushed to a parent array, with an index corresponding to that dog's data-index
                 modalDogImages.push(thisDogPics);
             })
@@ -137,7 +152,6 @@ $(document).ready(function(){
             // $("#details").append($("<p>").addClass("col-md-4").text("Sex: " + dogSex));
         });
     });
-
     var searchString;
       var ebayURL = "http://svcs.ebay.com/services/search/FindingService/v1";
       ebayURL += "?OPERATION-NAME=findCompletedItems";
@@ -395,6 +409,9 @@ $(document).ready(function(){
         $('#myModal').modal({
           keyboard: true
         })
+
+        //Appends the sex of the dog selected under the carousel in the modal
+        $("#dogSex").text("Sex: " + dogSex[currentIndex]);
 
         //Appends the description of the dog to the modal
         $("#dogDescription").text(dogDescription[currentIndex]);
