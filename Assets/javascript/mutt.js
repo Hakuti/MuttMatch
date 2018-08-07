@@ -23,6 +23,8 @@ $(document).ready(function(){
     var dogAge = [];
     //Arrary holding sex of each dog
     var dogSex = [];
+    //Array holding the size of each dog
+    var dogSize = [];
 
 
     //petfinder api call
@@ -53,7 +55,6 @@ $(document).ready(function(){
                 format: "json"
             }
         }).then(response=> {
-          console.log(response);
            //Variable that starts at zero, increases for each loop iteration. Used to hold unique info in each modal
             var dogIndex = 0;
             //Array that holds additional pictures of each dog.
@@ -129,6 +130,9 @@ $(document).ready(function(){
                 else {
                   dogAge.push(j.age.$t);
                 }
+
+                //The size of the dog being iterated over is pushed to the dogSize array
+                dogSize.push(j.size.$t);
 
                 //the array of this unique dog's images are pushed to a parent array, with an index corresponding to that dog's data-index
                 modalDogImages.push(thisDogPics);
@@ -404,6 +408,53 @@ $(document).ready(function(){
 
         //Appends the description of the dog to the modal
         $("#dogDescription").text(dogDescription[currentIndex]);
+
+        //Determines the size of the dog selected and displays products from Ebay accordingly
+        if (dogSize[currentIndex] == "S"){
+          smallDogItem.forEach(function(a){
+            var ebayItemDiv = $("<div>");
+            var ebayItemImg = $("<img>");
+            var embayItemURL = $("<a>");
+            var itemIndex = 1;
+
+            ebayItemImg.attr("src", a.imageURL);
+            embayItemURL.attr("href", a.itemURL);
+            embayItemURL.append(ebayItemImg);
+            ebayItemDiv.append(embayItemURL);
+            $("#ebayItem" + itemIndex).html(ebayItemDiv);
+            itemIndex++
+          })
+        }
+        else if (dogSize[currentIndex] == "M"){
+          mediumDogItem.forEach(function(b){
+            var ebayItemDiv = $("<div>");
+            var ebayItemImg = $("<img>");
+            var embayItemURL = $("<a>");
+            var itemIndex = 1;
+  
+            ebayItemImg.attr("src", b.imageURL);
+            embayItemURL.attr("href", b.itemURL);
+            embayItemURL.append(ebayItemImg);
+            ebayItemDiv.append(embayItemURL);
+            $("#ebayItem" + itemIndex).html(ebayItemDiv);
+            itemIndex++;
+          })
+        }
+        else {
+          largeDogItem.forEach(function(c){
+            var ebayItemDiv = $("<div>");
+            var ebayItemImg = $("<img>");
+            var embayItemURL = $("<a>");
+            var itemIndex = 1;
+
+            ebayItemImg.attr("src", c.imageURL);
+            embayItemURL.attr("href", c.itemURL);
+            embayItemURL.append(ebayItemImg);
+            ebayItemDiv.append(embayItemURL);
+            $("#ebayItem" + itemIndex).html(ebayItemDiv);
+            itemIndex++;
+          })
+        }
       })
 
     
@@ -431,5 +482,6 @@ $(document).ready(function(){
           $("#myCarousel").carousel('next');
           console.log("next")
         } )
-        // console.log(modalDogImages);
+        console.log(smallDogItem);
+        
     })
