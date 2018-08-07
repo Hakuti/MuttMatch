@@ -29,13 +29,12 @@ $(".gender").on("click",function() {
 $("#go").on("click", function() {
     event.preventDefault();
 //console.log("Here");
-console.log(age);
-console.log(gender);
+// console.log(age);
+// console.log(gender);
 breed = $("#breed").val();
-console.log(breed);
+// console.log(breed);
+
 if(age =="" || gender == "" || breed == ""){
-
-
     //console.log("Not valid");
     //return false;
 }

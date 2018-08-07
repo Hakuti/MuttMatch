@@ -10,7 +10,6 @@ $(document).ready(function(){
   var $carousel = $('#myCar').flickity()
   .flickity('next')
   .flickity( 'select', 4 );
-
   //Arrays housing information retrieved from ebay api
   //Each array holds 3 item images and links to their URL of dog products according to size
     var smallDogItem = [];
@@ -28,7 +27,6 @@ $(document).ready(function(){
     var dogSex = [];
     //Array holding the size of each dog
     var dogSize = [];
-
 
     //petfinder api call
     var petUrl = "http://api.petfinder.com/pet.find";
@@ -368,7 +366,9 @@ $(document).ready(function(){
         //Puts the newly declared carousel div into the parent container
         $("#modalCarouselContainer").html(innerCarousel);
         //Setting up inner modal carousel to work with flickity
-        var $flkty = $("#innerCarousel").flickity()
+        var $flkty = $("#innerCarousel").flickity({
+          pageDots: false
+        })
           .flickity('next')
           .flickity( 'select', 4 );
 
@@ -507,21 +507,19 @@ $(document).ready(function(){
         $("#myCarousel").on( "swiperight", function( event )
         {
           $(this).carousel("next");
-          console.log("Here")
         } );
      
     
      $(".carousel-control-prev-icon").on( "click", function( event ) 
         {
           $("#myCarousel").carousel('prev');
-          console.log("prev")
         } );
     
         $(".carousel-control-next-icon").on( "click", function( event ) 
         {
           $("#myCarousel").carousel('next');
-          console.log("next")
         } )
+        
         
         
     })
