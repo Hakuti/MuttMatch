@@ -121,35 +121,18 @@ $(document).ready(function(){
                   dogSex.push("Female");
                 }
 
+                //Pushes the age of the dog being iterated over to the dogAge array
+                //If the age from the API is "baby", the string is changed to "puppy" and then pushed to the array.
+                if (j.age.$t == "Baby"){
+                  dogAge.push("Puppy");
+                }
+                else {
+                  dogAge.push(j.age.$t);
+                }
+
                 //the array of this unique dog's images are pushed to a parent array, with an index corresponding to that dog's data-index
                 modalDogImages.push(thisDogPics);
             })
-
-
-
-
-
-            // photoGallery.forEach(function(i){
-            //     // THIS LOOP IS WORKING ON photoGallery VARIABLE
-            //     //VARIABLE IS ONLY SET TO 1 DOG IN THE ARRAY OF 25 DOGS
-            //     //THIS LOOP IS MEANT TO PUSH EVERY ADDITIONAL IMAGE OF ONE SPECIFIC DOG
-            //     //TO THE INNER CAROUSEL INSIDE THE MODAL
-            //     if (i["@size"] == "x"){
-            //         console.log(i.$t)
-            //         var newCarouselDiv = $("<div>");
-            //         var newCarImg = $("<img>");
-            //         newCarouselDiv.addClass("carousel-cell");
-            //         newCarImg.attr("src", i.$t);
-            //         newCarouselDiv.html(newCarImg);
-            //         // $carousel.flickity( 'append', newCarouselDiv )
-            //     }
-            // })
-            // $("#dogModalPic").addClass("img-responsive");
-            // $("#modalTitle").text(dogName);
-            // $("#description").html(dogDescription);
-            // $("#details").append($("<p>").addClass("col-md-4").text("Age: " + dogAge));
-            // $("#details").append($("<p>").addClass("col-md-4").text("Size: " + dogSize));
-            // $("#details").append($("<p>").addClass("col-md-4").text("Sex: " + dogSex));
         });
     });
     var searchString;
@@ -412,6 +395,12 @@ $(document).ready(function(){
 
         //Appends the sex of the dog selected under the carousel in the modal
         $("#dogSex").text("Sex: " + dogSex[currentIndex]);
+
+        //Appends the name of the dog selected under the carousel in the modal
+        $("#dogName").text("Name: " + dogName[currentIndex]);
+
+        //Appends the age of ther dog selected under the carousel in the modal
+        $("#dogAge").text("Age: " + dogAge[currentIndex]);
 
         //Appends the description of the dog to the modal
         $("#dogDescription").text(dogDescription[currentIndex]);
