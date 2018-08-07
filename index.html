@@ -18,15 +18,20 @@
 
   <div class="container">
 
+<<<<<<< HEAD
     <h1>MUTT MATCH!!!!!</h1>
     <img class="image" src="assets/images/Nw.jpg" alt="I1">
+=======
+    <h1>MUTT MATCH</h1>
+    <img class="image" src="Assets/images/Nw.jpg" alt="I1">
+>>>>>>> 5aedfb171e2d314b92a0aaa8198d8dfd26da12af
 
     <div class="row">
       <div class="col-6">
         <div class="col-8 txt m-txt_heavy m-txt_alignCenter mt-4">
           <div class="form-horizontal">
             <div class="input-group">
-              <input type="text" class="form-control" placeholder="Search text...">
+              <input type="text"  id="breed" class="form-control" placeholder="Search text...">
               <span class="input-group-btn">
                 <button class="btn btn-light" type="button">Breed</button>
               </span>
@@ -40,13 +45,13 @@
           <div class="col-3 txt m-txt_heavy m-txt_alignCenter">
             <h5>Gender</h5>
             <div class="dropdown">
-                <a class="btn btn-light dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="btn btn-light dropdown-toggle" href="#" role="button" id="GenderDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   Any
                 </a>
               
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                  <a class="dropdown-item" href="#">Male</a>
-                  <a class="dropdown-item" href="#">Female</a>
+                <div class="dropdown-menu one" aria-labelledby="dropdownMenuLink">
+                  <a class="dropdown-item gender" href="#">Male</a>
+                  <a class="dropdown-item gender" href="#">Female</a>
                 </div>
               </div>
 
@@ -55,22 +60,23 @@
           <div class="col-2 txt m-txt_heavy m-txt_uppercase m-txt_alignCenter mb-4">
             <h5>Age</h5>
 
+          
             <div class="dropdown show">
-                <a class="btn btn-light dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="btn btn-light dropdown-toggle" href="#" role="button" id="AgeDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   Any
                 </a>
               
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                  <a class="dropdown-item" href="#">Puppy</a>
-                  <a class="dropdown-item" href="#">Young</a>
-                  <a class="dropdown-item" href="#">Adult</a>
-                  <a class="dropdown-item" href="#">Senior</a>
+                <div class="dropdown-menu" id="Age" aria-labelledby="dropdownMenuLink">
+                  <p  class="dropdown-item age" href="#">Puppy</a>
+                  <p class="dropdown-item age" href="#">Young</a>
+                  <p class="dropdown-item age" href="#">Adult</a>
+                  <p class="dropdown-item age" href="#">Senior</a>
                 </div>
               </div>
           </div>
-            
+          
           <div class="col-2 txt m-txt_heavy m-txt_alignCenter mt-4 ml-3">
-          <button class="btn btn-light" type="button">Go!</button>
+          <button class="btn btn-light" id="go" type="button">Go!</button>
         </div>
           </div>
 
@@ -79,7 +85,7 @@
 
 
 
-
+      <script src="Assets/javascript/landing.js"></script>
     </div>
   </div>
 </body>

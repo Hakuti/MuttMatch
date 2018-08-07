@@ -3,7 +3,6 @@ $(document).ready(function(){
   var $carousel = $('#myCar').flickity()
   .flickity('next')
   .flickity( 'select', 4 );
-
   //Arrays housing information retrieved from ebay api
   //Each array holds 3 item images and links to their URL of dog products according to size
     var smallDogItem = [];
