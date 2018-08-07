@@ -4,10 +4,6 @@ $(document).ready(function(){
   .flickity('next')
   .flickity( 'select', 4 );
 
-  var $flkty = $("#innerCarousel").flickity()
-  .flickity('next')
-  .flickity( 'select', 4 );
-
   //Arrays housing information retrieved from ebay api
   //Each array holds 3 item images and links to their URL of dog products according to size
     var smallDogItem = [];
@@ -360,20 +356,32 @@ $(document).ready(function(){
 
       //On click function that grabs all images of selected dog from modalDogImages array
       $(document).on("click", ".uniqueDogImg", function(){
+        //Sets the div that will hold the inner carousel
+        var innerCarousel = $("<div id='innerCarousel' class='carousel'>")
+        //Puts the newly declared carousel div into the parent container
+        $("#modalCarouselContainer").html(innerCarousel);
+        //Setting up inner modal carousel to work with flickity
+        var $flkty = $("#innerCarousel").flickity()
+          .flickity('next')
+          .flickity( 'select', 4 );
+
+        //Variable used to index the item pulled from ebay api and append them accordingly
         var itemIndex = 1;
-        // var carouselDiv = $("<div>");
-        // carouselDiv.addClass("carousel");
+
+        //grabs the index of the dog clicked
         var currentIndex = $(this)[0].parentElement.dataset.index;
+
+        //array that will hold all extra images of dog selected
         var thisDogExtraPics = [];
 
         //HOLDS THE SIZE OF THE DOG CLICKED ON
         var dogSize = ($(this)["0"].parentElement.attributes[2].nodeValue);
+        // console.log($(this)["0"].parentElement.attributes);
 
-
+        //Pushes images of dog slected to thisDogExtraPics array
         modalDogImages[currentIndex].forEach(function(p){
           thisDogExtraPics.push(p);
         })
-
 
         // This for each loop iterates on each image of the selected dog
         thisDogExtraPics.forEach(function(n){
