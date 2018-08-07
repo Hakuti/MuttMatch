@@ -21,6 +21,14 @@ $(document).ready(function(){
     age = "Baby"
   }
 
+  if (gender == "Male"){
+    gender = "M"
+  }
+  else if (gender == "Female"){
+    gender = "F"
+  }
+  console.log(gender);
+
   //Variable housing neccessary data for image carousel
   var $carousel = $('#myCar').flickity()
   .flickity('next')
@@ -54,9 +62,9 @@ $(document).ready(function(){
             key: petApiKey,
             animal: "dog",
             "location": "32812",
-            // age: age,
-            // sex: gender,
-            // breed: breed,
+            age: age,
+            sex: gender,
+            breed: breed,
             output: "basic",
             format: "json"
         }
@@ -70,8 +78,8 @@ $(document).ready(function(){
                 key: petApiKey,
                 animal: "dog",
                 "location": "32812",
-                // age: age,
-                // sex: gender,
+                age: age,
+                sex: gender,
                 breed: breed,
                 output: "basic",
                 format: "json"
