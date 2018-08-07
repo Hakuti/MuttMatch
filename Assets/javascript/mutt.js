@@ -17,6 +17,9 @@ $(document).ready(function(){
     //Array holding additional images of each unique dog
     var modalDogImages = [];
 
+    //Array holding description of each unique dog
+    var dogDescription = [];
+
 
     //petfinder api call
     var petUrl = "http://api.petfinder.com/pet.find";
@@ -46,6 +49,7 @@ $(document).ready(function(){
                 format: "json"
             }
         }).then(response=> {
+          console.log(response);
            //Variable that starts at zero, increases for each loop iteration. Used to hold unique info in each modal
             var dogIndex = 0;
             //Array that holds additional pictures of each dog.
@@ -99,6 +103,9 @@ $(document).ready(function(){
                     thisDogPics.push(m.$t);
                   }
                 })
+                //The description about this unique dog is pushed to the global array
+                dogDescription.push(j.description.$t);
+
                 //the array of this unique dog's images are pushed to a parent array, with an index corresponding to that dog's data-index
                 modalDogImages.push(thisDogPics);
             })
@@ -363,10 +370,10 @@ $(document).ready(function(){
         var carouselDiv = $("<div>");
         carouselDiv.addClass("carousel");
         var currentIndex = $(this)[0].parentElement.dataset.index;
-        console.log($(this)["0"].parentElement.attributes[2].nodeValue);
-        console.log($(this)["0"].parentElement.attributes);
-        
-        // $("#innerCarousel").children($(".flickity-slider")).empty();
+
+        //HOLDS THE SIZE OF THE DOG CLICKED ON
+        var dogSize = ($(this)["0"].parentElement.attributes[2].nodeValue);
+        // console.log($(this)["0"].parentElement.attributes);
 
         // This for each loop iterates on each image of the selected dog
         modalDogImages[currentIndex].forEach(function(n){
@@ -388,6 +395,9 @@ $(document).ready(function(){
         $('#myModal').modal({
           keyboard: true
         })
+
+        //Appends the description of the dog to the modal
+        $("#dogDescription").text(dogDescription[currentIndex]);
       })
 
     
