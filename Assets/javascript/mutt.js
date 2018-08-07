@@ -86,6 +86,7 @@ $(document).ready(function(){
                 format: "json"
             }
         }).then(response=> {
+          console.log(response);
            //Variable that starts at zero, increases for each loop iteration. Used to hold unique info in each modal
             var dogIndex = 0;
             //Array that holds additional pictures of each dog.
@@ -102,6 +103,7 @@ $(document).ready(function(){
                         //Creating a div to hold the image
                         var uniqueDogDiv = $("<div>");
                         var newImg = $("<img>");
+                        // var likeButton = $("<i>")
                         //Adds class to work with carousel
                         uniqueDogDiv.addClass("carousel-cell");
                         //setting src of the image of the first full sized image of the dog
@@ -109,7 +111,13 @@ $(document).ready(function(){
                         newImg.addClass("uniqueDogImg");
                         uniqueDogDiv.attr("data-index", dogIndex);
                         uniqueDogDiv.attr("data-size", j.size.$t);
+                        uniqueDogDiv.attr("data-id", j.id.$t);
+                        newImg.attr("data-id", j.id.$t);
                         uniqueDogDiv.html(newImg);
+
+                        // likeButton.attr("data-id", j.id.$t);
+                        // likeButton.addClass("fas fa-heart");
+                        // likeButton.html("<span class='click-value'></span> Likes");
                         //Appends the image to the carousel
                         $carousel.flickity( 'append', uniqueDogDiv )
                         dogIndex++;
@@ -390,6 +398,12 @@ $(document).ready(function(){
 
       //On click function that grabs all images of selected dog from modalDogImages array
       $(document).on("click", ".uniqueDogImg", function(){
+        var likeButton = $("<i>");
+        likeButton.attr("data-id", $(this).attr("data-id"));
+        likeButton.addClass("fas fa-heart");
+        likeButton.html("<span class='click-value'>Likes</span> ");
+
+
         //Sets the div that will hold the inner carousel
         var innerCarousel = $("<div id='innerCarousel' class='carousel'>")
         //Puts the newly declared carousel div into the parent container
@@ -451,6 +465,8 @@ $(document).ready(function(){
 
         //Appends the description of the dog to the modal
         $("#dogDescription").text(dogDescription[currentIndex]);
+
+        $("#likeButtonDiv").append(likeButton);
 
        
         //Determines the size of the dog selected and displays products from Ebay accordingly
@@ -520,6 +536,7 @@ $(document).ready(function(){
             itemIndex++;
           })
         }
+        console.log($(this).attr("data-id"));
       })
 
       $('#myModal').on('hidden.bs.modal', function () {
