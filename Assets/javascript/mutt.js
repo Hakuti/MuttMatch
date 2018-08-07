@@ -71,8 +71,6 @@ $(document).ready(function(){
                         //Creating a div to hold the image
                         var uniqueDogDiv = $("<div>");
                         var newImg = $("<img>");
-                        //Gets the info icon from FontAwesome
-                        var infoIcon = $("<i class='fas fa-info-circle fa-2x'></i>");
                         //Adds class to work with carousel
                         uniqueDogDiv.addClass("carousel-cell");
                         //setting src of the image of the first full sized image of the dog
@@ -81,13 +79,6 @@ $(document).ready(function(){
                         uniqueDogDiv.attr("data-index", dogIndex);
                         uniqueDogDiv.attr("data-size", j.size.$t);
                         uniqueDogDiv.html(newImg);
-                        //Sets styling for info icon on each image
-                        infoIcon.css("position", "absolute");
-                        infoIcon.css("bottom", "20");
-                        infoIcon.css("right", "50");
-                        infoIcon.css("color", "#017bff");
-                        infoIcon.attr("data-index", dogIndex)
-                        uniqueDogDiv.append(infoIcon)
                         //Appends the image to the carousel
                         $carousel.flickity( 'append', uniqueDogDiv )
                         dogIndex++;
