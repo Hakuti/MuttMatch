@@ -1,7 +1,7 @@
 body{
     /* background-color: purple; */
     color: greenyellow;
-    background-image: url("Images/NEWBG.jpg");
+    background-image: url(Assets/images/NEWBG.jpg);
     background-repeat: no-repeat;
     font: bold;
 }

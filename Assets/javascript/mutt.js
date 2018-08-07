@@ -21,7 +21,6 @@ $(document).ready(function(){
     //Array holding the size of each dog
     var dogSize = [];
 
-
     //petfinder api call
     var petUrl = "http://api.petfinder.com/pet.find";
     var petApiKey = "aaf7ea34460505b8e7841f0512aae7a4"
@@ -501,21 +500,19 @@ $(document).ready(function(){
         $("#myCarousel").on( "swiperight", function( event )
         {
           $(this).carousel("next");
-          console.log("Here")
         } );
      
     
      $(".carousel-control-prev-icon").on( "click", function( event ) 
         {
           $("#myCarousel").carousel('prev');
-          console.log("prev")
         } );
     
         $(".carousel-control-next-icon").on( "click", function( event ) 
         {
           $("#myCarousel").carousel('next');
-          console.log("next")
         } )
+        
         
         
     })
