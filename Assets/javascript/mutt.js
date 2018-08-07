@@ -1,11 +1,35 @@
 //console.log(age);
 $(document).ready(function(){
+
+  function capEachWord(string){
+    var stringSplit = string.toLowerCase().split(" ");
+    for (var i = 0 ; i < stringSplit.length; i++){
+      stringSplit[i] = stringSplit[i].charAt(0).toUpperCase() + stringSplit[i].substring(1);
+    }
+    return stringSplit.join(" ");
+  }
+
   age = localStorage.getItem("age");
-  breed = localStorage.getItem("breed");
+  breed = capEachWord(localStorage.getItem("breed"));
   gender = localStorage.getItem("gender");
+  zip = localStorage.getItem("zip");
+
+  //Sets the age to the search argument required by the petfinder API
+  if (age == "Puppy"){
+    age = "Baby"
+  }
+
+  if (gender == "Male"){
+    gender = "M"
+  }
+  else if (gender == "Female"){
+    gender = "F"
+  }
+  console.log(gender);
+  console.log(zip);
   console.log(age);
   console.log(breed);
-  console.log(gender);
+
   //Variable housing neccessary data for image carousel
   var $carousel = $('#myCar').flickity()
   .flickity('next')
@@ -38,7 +62,10 @@ $(document).ready(function(){
         data: {
             key: petApiKey,
             animal: "dog",
-            "location": "32812",
+            "location": zip,
+            age: age,
+            sex: gender,
+            breed: breed,
             output: "basic",
             format: "json"
         }
@@ -51,12 +78,14 @@ $(document).ready(function(){
             data: {
                 key: petApiKey,
                 animal: "dog",
-                "location": "32812",
+                "location": zip,
+                age: age,
+                sex: gender,
+                breed: breed,
                 output: "basic",
                 format: "json"
             }
         }).then(response=> {
-          console.log(response);
            //Variable that starts at zero, increases for each loop iteration. Used to hold unique info in each modal
             var dogIndex = 0;
             //Array that holds additional pictures of each dog.
@@ -519,7 +548,4 @@ $(document).ready(function(){
         {
           $("#myCarousel").carousel('next');
         } )
-        
-        
-        
     })
