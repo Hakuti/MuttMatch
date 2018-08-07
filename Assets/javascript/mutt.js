@@ -368,6 +368,7 @@ $(document).ready(function(){
 
       //On click function that grabs all images of selected dog from modalDogImages array
       $(document).on("click", ".uniqueDogImg", function(){
+        var itemIndex = 1;
         var carouselDiv = $("<div>");
         carouselDiv.addClass("carousel");
         var currentIndex = $(this)[0].parentElement.dataset.index;
@@ -415,7 +416,6 @@ $(document).ready(function(){
             var ebayItemDiv = $("<div>");
             var ebayItemImg = $("<img>");
             var embayItemURL = $("<a>");
-            var itemIndex = 1;
 
             ebayItemImg.attr("src", a.imageURL);
             embayItemURL.attr("href", a.itemURL);
@@ -430,7 +430,6 @@ $(document).ready(function(){
             var ebayItemDiv = $("<div>");
             var ebayItemImg = $("<img>");
             var embayItemURL = $("<a>");
-            var itemIndex = 1;
   
             ebayItemImg.attr("src", b.imageURL);
             embayItemURL.attr("href", b.itemURL);
@@ -445,7 +444,6 @@ $(document).ready(function(){
             var ebayItemDiv = $("<div>");
             var ebayItemImg = $("<img>");
             var embayItemURL = $("<a>");
-            var itemIndex = 1;
 
             ebayItemImg.attr("src", c.imageURL);
             embayItemURL.attr("href", c.itemURL);
