@@ -1,7 +1,5 @@
 body {
-
     background-image: url(./images/NEWBG.jpg) !important;
-
 }
 
 img {
@@ -27,7 +25,6 @@ p {
 color:white;
 display: block;
 height: 60px;
-
 }  
  
 .container {
@@ -35,6 +32,19 @@ height: 60px;
     margin: auto;
     text-align: center;
   } 
+
+.approveBtn {
+    /* display: block; */
+    color: rgb(233, 16, 16);
+    width: 150px;
+    height: 150px;
+    float: right;
+}
+
+#Adopt {
+    color: red;
+   
+}
 
 /* body { */
     /* overflow: hidden; */
@@ -50,7 +60,7 @@ height: 60px;
     margin: auto;
     box-shadow: 0px 0px 100px #fff !important;
     z-index: 5;
-   
+    border: 5px;
 } 
 .carousel-cell {
     width: 100%;
@@ -65,6 +75,10 @@ height: 60px;
      background: #ED2;
      z-index: 999;
      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+ }
+
+ #myCar{
+    
  }
   
   /* cell number

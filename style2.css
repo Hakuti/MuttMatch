@@ -1,9 +1,17 @@
 body{
     /* background-color: purple; */
-    color: greenyellow;
     background-image: url("Assets/images/NEWBG.jpg");
     background-repeat: no-repeat;
     font: bold;
+}
+h1 {
+    font-size: 80pt !important;
+    font-family: 'Courgette', cursive;
+    font-family: 'Satisfy', cursive;
+    font-family: 'Kaushan Script', cursive !important;
+    font-family: 'Fredoka One', cursive;
+    color: rgb(255, 238, 0) !important;
+    margin-top: 2;
 }
 
 h5{
@@ -16,19 +24,9 @@ position: absolute;
 
 .container{
     margin-left: 15%;
-   
-   
 }
 
-h1 {
-    font-size: 80pt !important;
-    font-family: 'Courgette', cursive;
-    font-family: 'Satisfy', cursive;
-    font-family: 'Kaushan Script', cursive !important;
-    font-family: 'Fredoka One', cursive;
-    color: rgb(255, 238, 0) !important;
-    margin-top: 2;
-}
+
 
 
 /* @media screen and (min-width: 320px) {
