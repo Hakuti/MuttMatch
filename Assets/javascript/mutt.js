@@ -13,6 +13,8 @@ $(document).ready(function(){
     var smallDogItem = [];
     var mediumDogItem = [];
     var largeDogItem = [];
+
+    //Array holding additional images of each unique dog
     var modalDogImages = [];
 
 
@@ -44,11 +46,9 @@ $(document).ready(function(){
                 format: "json"
             }
         }).then(response=> {
-            // console.log(response);
-            // console.log(response.petfinder.pets.pet)
-
            //Variable that starts at zero, increases for each loop iteration. Used to hold unique info in each modal
             var dogIndex = 0;
+            //Array that holds additional pictures of each dog.
             var thisDogPics = [];
             //Loops through each dog pulled back from ajax request
             response.petfinder.pets.pet.forEach(function(j){
@@ -59,7 +59,7 @@ $(document).ready(function(){
                     if (j.media.photos.photo[l]["@size"] == "x"){
                         //Sets the first full size image of the dog to uniqueDogImg
                         var uniqueDogImg = j.media.photos.photo[l].$t;
-                        //Creatin a div to hold the image
+                        //Creating a div to hold the image
                         var uniqueDogDiv = $("<div>");
                         var newImg = $("<img>");
                         //Gets the info icon from FontAwesome
@@ -88,7 +88,7 @@ $(document).ready(function(){
                 //This for each loop is used to push extra images of each dog to an array for use in the modal
                 // it takes each full size image of each unique dog and pushes it to an array
                 //That array of images is then pushed to a parent array.
-                //The each index of the parent array corresponds each unique dog in the order that they come from the API
+                //Each index of the parent array corresponds each unique dog in the order that they come from the API
 
                 //array holding each dog's pictures initialized empty
                 thisDogPics = [];
@@ -102,7 +102,6 @@ $(document).ready(function(){
                 //the array of this unique dog's images are pushed to a parent array, with an index corresponding to that dog's data-index
                 modalDogImages.push(thisDogPics);
             })
-            // console.log(modalDogImages);
 
 
 
@@ -283,7 +282,6 @@ $(document).ready(function(){
             imageURL: response.findCompletedItemsResponse[0].searchResult[0].item[0].galleryURL[0],
             itemURL: response.findCompletedItemsResponse[0].searchResult[0].item[0].viewItemURL[0]
         })
-        // console.log(smallDogItem)
       });
 
       ebayURL = "http://svcs.ebay.com/services/search/FindingService/v1";
@@ -362,10 +360,13 @@ $(document).ready(function(){
 
       //On click function that grabs all images of selected dog from modalDogImages array
       $(document).on("click", ".uniqueDogImg", function(){
-        // $("#innerCarousel").children()[0].children[0].children
         var carouselDiv = $("<div>");
         carouselDiv.addClass("carousel");
         var currentIndex = $(this)[0].parentElement.dataset.index;
+        console.log($(this)["0"].parentElement.attributes[2].nodeValue);
+        console.log($(this)["0"].parentElement.attributes);
+        
+        // $("#innerCarousel").children($(".flickity-slider")).empty();
 
         // This for each loop iterates on each image of the selected dog
         modalDogImages[currentIndex].forEach(function(n){
@@ -379,7 +380,6 @@ $(document).ready(function(){
           thisDogImg.attr("src", n);
           //inserts the img tag into the div holding the dog image
           thisDogDiv.html(thisDogImg);
-          console.log(thisDogDiv.html());
           //appends the div holding the image to the carousel
           $flkty.flickity( 'append', thisDogDiv )
         })
