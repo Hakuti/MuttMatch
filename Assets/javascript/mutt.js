@@ -401,45 +401,70 @@ $(document).ready(function(){
         //Appends the description of the dog to the modal
         $("#dogDescription").text(dogDescription[currentIndex]);
 
+       
         //Determines the size of the dog selected and displays products from Ebay accordingly
-        if (dogSize[currentIndex] == "S"){
+          //If the dog's size is "small", the results from the small dog item search from the ebay API
+          //are appended to the bottom of the modal
+            if (dogSize[currentIndex] == "S"){
           smallDogItem.forEach(function(a){
+            //creates a new div for each ebay item being appended
             var ebayItemDiv = $("<div>");
+            //Creates an img tag for the picture of the item pulled from ebay
             var ebayItemImg = $("<img>");
+            //anchor tag to hold a link to the item on ebay's website
             var embayItemURL = $("<a>");
 
+            //Setting attribues of the img and anchor tags to their respective item URLs
             ebayItemImg.attr("src", a.imageURL);
             embayItemURL.attr("href", a.itemURL);
+            //Appends the item image to the anchor tag, and the anchor tag to the parent item div
             embayItemURL.append(ebayItemImg);
             ebayItemDiv.append(embayItemURL);
+            //Inserts the item div into the DOM
             $("#ebayItem" + itemIndex).html(ebayItemDiv);
             itemIndex++
           })
         }
+        //If the dog's size is "medium", the results from the medium dog item search the ebay API
+        //are appended to the bottom of the modal
         else if (dogSize[currentIndex] == "M"){
           mediumDogItem.forEach(function(b){
+            //creates a new div for each ebay item being appended
             var ebayItemDiv = $("<div>");
+            //Creates an img tag for the picture of the item pulled from ebay
             var ebayItemImg = $("<img>");
+            //anchor tag to hold a link to the item on ebay's website
             var embayItemURL = $("<a>");
   
+            //Setting attribues of the img and anchor tags to their respective item URLs
             ebayItemImg.attr("src", b.imageURL);
             embayItemURL.attr("href", b.itemURL);
+            //Appends the item image to the anchor tag, and the anchor tag to the parent item div
             embayItemURL.append(ebayItemImg);
             ebayItemDiv.append(embayItemURL);
+            //Inserts the item div into the DOM
             $("#ebayItem" + itemIndex).html(ebayItemDiv);
             itemIndex++;
           })
         }
+        //If the dog's size is NOT "medium" or "small", the results from the large dog item search the ebay API
+        //are appended to the bottom of the modal
         else {
           largeDogItem.forEach(function(c){
+            //creates a new div for each ebay item being appended
             var ebayItemDiv = $("<div>");
+            //Creates an img tag for the picture of the item pulled from ebay
             var ebayItemImg = $("<img>");
+            //anchor tag to hold a link to the item on ebay's website
             var embayItemURL = $("<a>");
 
+            //Setting attribues of the img and anchor tags to their respective item URLs
             ebayItemImg.attr("src", c.imageURL);
             embayItemURL.attr("href", c.itemURL);
+            //Appends the item image to the anchor tag, and the anchor tag to the parent item div
             embayItemURL.append(ebayItemImg);
             ebayItemDiv.append(embayItemURL);
+            //Inserts the item div into the DOM
             $("#ebayItem" + itemIndex).html(ebayItemDiv);
             itemIndex++;
           })
