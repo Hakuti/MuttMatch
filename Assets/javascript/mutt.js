@@ -55,6 +55,7 @@ $(document).ready(function(){
                 format: "json"
             }
         }).then(response=> {
+          console.log(response);
            //Variable that starts at zero, increases for each loop iteration. Used to hold unique info in each modal
             var dogIndex = 0;
             //Array that holds additional pictures of each dog.
@@ -359,6 +360,7 @@ $(document).ready(function(){
 
       //On click function that grabs all images of selected dog from modalDogImages array
       $(document).on("click", ".uniqueDogImg", function(){
+        console.log($("#modalCarouselContainer")[0].childNodes[1].children[0]);
         var itemIndex = 1;
         var carouselDiv = $("<div>");
         carouselDiv.addClass("carousel");
@@ -496,6 +498,6 @@ $(document).ready(function(){
           $("#myCarousel").carousel('next');
           console.log("next")
         } )
-        console.log(smallDogItem);
+        console.log(modalDogImages);
         
     })
