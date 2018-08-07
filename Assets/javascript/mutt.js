@@ -1,4 +1,11 @@
+//console.log(age);
 $(document).ready(function(){
+  age = localStorage.getItem("age");
+  breed = localStorage.getItem("breed");
+  gender = localStorage.getItem("gender");
+  console.log(age);
+  console.log(breed);
+  console.log(gender);
   //Variable housing neccessary data for image carousel
   var $carousel = $('#myCar').flickity()
   .flickity('next')
