@@ -361,14 +361,13 @@ $(document).ready(function(){
       //On click function that grabs all images of selected dog from modalDogImages array
       $(document).on("click", ".uniqueDogImg", function(){
         var itemIndex = 1;
-        var carouselDiv = $("<div>");
-        carouselDiv.addClass("carousel");
+        // var carouselDiv = $("<div>");
+        // carouselDiv.addClass("carousel");
         var currentIndex = $(this)[0].parentElement.dataset.index;
         var thisDogExtraPics = [];
 
         //HOLDS THE SIZE OF THE DOG CLICKED ON
         var dogSize = ($(this)["0"].parentElement.attributes[2].nodeValue);
-        // console.log($(this)["0"].parentElement.attributes);
 
 
         modalDogImages[currentIndex].forEach(function(p){
