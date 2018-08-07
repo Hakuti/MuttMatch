@@ -1,5 +1,7 @@
 body {
-    background-image: url(./Assets/images/Paw-Background-3.jpg) !important;
+
+    background-image: url(./images/NEWBG.jpg) !important;
+
 }
 
 img {
@@ -20,9 +22,15 @@ p {
     color: white;
     font-size: 20px;
   }
-  
 
- .container {
+.fas{
+color:white;
+display: block;
+height: 60px;
+
+}  
+ 
+.container {
     /* display: inline; */
     margin: auto;
     text-align: center;
@@ -51,10 +59,7 @@ p {
     /* background: #8C8; */
     border-radius: 5px;
     counter-increment: gallery-cell;
-    
-   
-
-  }
+}
 
  .carousel-cell.is-selected {
      background: #ED2;
@@ -124,4 +129,9 @@ p {
         overflow-y: scroll;
         }
  } 
+
+ #innerCarousel {
+    margin: 0;
+    width: 100%
+  }
 

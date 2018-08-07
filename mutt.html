@@ -57,29 +57,37 @@
                 </div>
 
 
-            <div class="row">    
-            <i class="fas fa-heart"><span id="click-value"></span> Likes</i>    
-            </div>
+               
+                <i class="fas fa-heart"><span id="click-value"></span>Likes</i>
 
 
                 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
                             <div class="modal-body">
-                                <div>
-                                    <img src="http://via.placeholder.com/350x150" alt="">
+                                <div class="container" id="modalCarouselContainer">
                                 </div>
-
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary">Save changes</button>
+                                <div class="row">
+                                    <div class="col-md-4" id="dogName"></div>
+                                    <div class="col-md-4" id="dogSex"></div>
+                                    <div class="col-md-4" id="dogAge"></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12" id="dogDescription"></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">Grab some great stuff for your new companion!</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4" id="ebayItem1"></div>
+                                    <div class="col-md-4" id="ebayItem2"></div>
+                                    <div class="col-md-4" id="ebayItem3"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -87,13 +95,12 @@
             </div>
 
             <nav class="navbar fixed-bottom navbar-light bg-transparent">
-                <a class="navbar-brand" href="#">Fixed bottom</a>
+                <a class="navbar-brand" href="#"><img src="Assets/images/Solon.png"  ></a>
               </nav>
 
-
-
-
+            <script src="Assets/javascript/landing.js"></script>
             <script src="Assets/javascript/mutt.js"></script>
+            <script src="Assets/javascript/firebase.js"></script>
     </body>
 
 </html>
