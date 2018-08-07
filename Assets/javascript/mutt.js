@@ -1,9 +1,39 @@
+//console.log(age);
 $(document).ready(function(){
+
+  function capEachWord(string){
+    var stringSplit = string.toLowerCase().split(" ");
+    for (var i = 0 ; i < stringSplit.length; i++){
+      stringSplit[i] = stringSplit[i].charAt(0).toUpperCase() + stringSplit[i].substring(1);
+    }
+    return stringSplit.join(" ");
+  }
+
+  age = localStorage.getItem("age");
+  breed = capEachWord(localStorage.getItem("breed"));
+  gender = localStorage.getItem("gender");
+  zip = localStorage.getItem("zip");
+
+  //Sets the age to the search argument required by the petfinder API
+  if (age == "Puppy"){
+    age = "Baby"
+  }
+
+  if (gender == "Male"){
+    gender = "M"
+  }
+  else if (gender == "Female"){
+    gender = "F"
+  }
+  console.log(gender);
+  console.log(zip);
+  console.log(age);
+  console.log(breed);
+
   //Variable housing neccessary data for image carousel
   var $carousel = $('#myCar').flickity()
   .flickity('next')
   .flickity( 'select', 4 );
-
   //Arrays housing information retrieved from ebay api
   //Each array holds 3 item images and links to their URL of dog products according to size
     var smallDogItem = [];
@@ -22,7 +52,6 @@ $(document).ready(function(){
     //Array holding the size of each dog
     var dogSize = [];
 
-
     //petfinder api call
     var petUrl = "http://api.petfinder.com/pet.find";
     var petApiKey = "aaf7ea34460505b8e7841f0512aae7a4"
@@ -33,7 +62,10 @@ $(document).ready(function(){
         data: {
             key: petApiKey,
             animal: "dog",
-            "location": "32812",
+            "location": zip,
+            age: age,
+            sex: gender,
+            breed: breed,
             output: "basic",
             format: "json"
         }
@@ -46,12 +78,14 @@ $(document).ready(function(){
             data: {
                 key: petApiKey,
                 animal: "dog",
-                "location": "32812",
+                "location": zip,
+                age: age,
+                sex: gender,
+                breed: breed,
                 output: "basic",
                 format: "json"
             }
         }).then(response=> {
-          console.log(response);
            //Variable that starts at zero, increases for each loop iteration. Used to hold unique info in each modal
             var dogIndex = 0;
             //Array that holds additional pictures of each dog.
@@ -361,7 +395,9 @@ $(document).ready(function(){
         //Puts the newly declared carousel div into the parent container
         $("#modalCarouselContainer").html(innerCarousel);
         //Setting up inner modal carousel to work with flickity
-        var $flkty = $("#innerCarousel").flickity()
+        var $flkty = $("#innerCarousel").flickity({
+          pageDots: false
+        })
           .flickity('next')
           .flickity( 'select', 4 );
 
@@ -500,21 +536,16 @@ $(document).ready(function(){
         $("#myCarousel").on( "swiperight", function( event )
         {
           $(this).carousel("next");
-          console.log("Here")
         } );
      
     
      $(".carousel-control-prev-icon").on( "click", function( event ) 
         {
           $("#myCarousel").carousel('prev');
-          console.log("prev")
         } );
     
         $(".carousel-control-next-icon").on( "click", function( event ) 
         {
           $("#myCarousel").carousel('next');
-          console.log("next")
         } )
-        
-        
     })
