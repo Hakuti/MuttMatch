@@ -28,17 +28,22 @@
     // $(".btn btn-light").on("click", function() {
 
       $(document).on("click", "i", function(){
-        var initialVal = 0;
-        console.log("clicked");
-          var dogId = $(this).attr("data-id");
-          database.ref().on("value", function(snap){
-            console.log(snap.val())
-            console.log(snap.key);
-            if (snap.key.indexOf(dogId) == -1){
-              database.ref().update({
-                [dogId]: initialVal
-              })
-            }
+        var initialVal = 1;
+        var dogId = $(this).attr("data-id");
+        database.ref().once("value", function(snap){
+          if (snap.hasChild(dogId)){
+            var thisChild = snap.child(dogId).val();
+            thisChild++;
+            database.ref().update({
+              [dogId]: thisChild
+            })
+          } 
+          else {
+            database.ref().update({
+            [dogId]: initialVal
+            })
+          }
+        })
             
             // else {
             //   database.ref().update({
@@ -48,14 +53,13 @@
             
           })
       // Add to clickCounter
-      clickCounter++;
+      // clickCounter++;
 
       //  Store Click Data to Firebase in a JSON property called clickCount
       // Note how we are using the Firebase .set() method
       // database.ref().update({
       //   [dogId]: clickCounter
       // });
-    });
 
 
     // MAIN PROCESS + INITIAL CODE
