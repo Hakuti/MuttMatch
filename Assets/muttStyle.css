@@ -47,8 +47,16 @@ height: 60px;
 }
 
 .fixed-bottom {
-    z-index: -10 !important;
-}
+    /*     z-index: -10 !important; */
+    }
+    
+    .modal {
+      z-index: 10001;
+    }
+    
+    #myCar {
+      z-index: 10000;
+    }
 
 /* body { */
     /* overflow: hidden; */
