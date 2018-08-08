@@ -2,7 +2,7 @@
 
 ### Overview
 
-![alt text](Assets/images)
+![alt text](Assets/images/index.png)
 
 We used the PetFinder API and Ebay API.
 
