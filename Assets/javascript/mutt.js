@@ -25,10 +25,6 @@ $(document).ready(function(){
   else if (gender == "Female"){
     gender = "F"
   }
-  console.log(gender);
-  console.log(zip);
-  console.log(age);
-  console.log(breed);
 
   //Variable housing neccessary data for image carousel
   var $carousel = $('#myCar').flickity()
@@ -86,7 +82,6 @@ $(document).ready(function(){
                 format: "json"
             }
         }).then(response=> {
-          console.log(response);
            //Variable that starts at zero, increases for each loop iteration. Used to hold unique info in each modal
             var dogIndex = 0;
             //Array that holds additional pictures of each dog.
@@ -466,7 +461,7 @@ $(document).ready(function(){
         //Appends the description of the dog to the modal
         $("#dogDescription").text(dogDescription[currentIndex]);
 
-        $("#likeButtonDiv").append(likeButton);
+        $("#likeButtonDiv").html(likeButton);
 
        
         //Determines the size of the dog selected and displays products from Ebay accordingly
@@ -536,7 +531,6 @@ $(document).ready(function(){
             itemIndex++;
           })
         }
-        console.log($(this).attr("data-id"));
       })
 
       $('#myModal').on('hidden.bs.modal', function () {
