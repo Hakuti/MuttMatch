@@ -51,7 +51,7 @@ $(document).ready(function(){
     var contactInfo = [];
 
     //petfinder api call
-    var petUrl = "http://api.petfinder.com/pet.find";
+    var petUrl = "https://api.petfinder.com/pet.find";
     var petApiKey = "aaf7ea34460505b8e7841f0512aae7a4"
     $.ajax({
         url: petUrl,
