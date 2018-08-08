@@ -1,7 +1,8 @@
 body{
     /* background-color: purple; */
     background-image: url("Assets/images/NEWBG.jpg");
-    background-repeat: no-repeat;
+    /* background-repeat: no-repeat; */
+    background-size: cover;
     font: bold;
 }
 h1 {
