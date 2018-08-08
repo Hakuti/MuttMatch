@@ -564,6 +564,7 @@ $(document).ready(function(){
         } )
 
         $(document).on("click", ".approveBtn", function(){
+          console.log("clicked");
           var contactIndex = $(".is-selected").attr("data-index");
           $("#contactInfo").html(contactInfo[contactIndex])
           console.log(contactInfo[contactIndex])
