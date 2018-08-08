@@ -18,32 +18,7 @@ h5{
     color: yellow;
 }
 
-/* #image{
-position: absolute;
-} */
-
-.container{
-    margin-left: 15%;
+ @media screen and (max-width: 768px) {
+h1{
+    font-size: 40pt;}
 }
-
-
-
-
-/* @media screen and (min-width: 320px) {
- padding: auto;
- margin: 30%;
-}
-
-.wrapper {
-    width: 100%;
-    margin: auto;
-}
-
-#row1{
-  
-    width: 100%;
-  } */
-
-  
-  
-

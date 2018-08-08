@@ -6,85 +6,90 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Mutt Match</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-   
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
+
   <link rel="stylesheet" type="text/css" href="style2.css">
 </head>
 
 <body>
 
-  <div class="container">
-
-    <h1>MUTT MATCH</h1>
-    <img class="image" src="Assets/images/Nw.jpg" alt="I1">
+  <div class="container-fluid">
+    <!-- for header -->
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <h1>Mutt Match</h1>
+      </div>
+    </div>
+    <!-- For Image block -->
+    <div class="row">
+      <img class="img-fluid mx-auto d-block" src="Assets/images/Nw.jpg" alt="I1">
+    </div>
 
     <div class="row">
-      <div class="col-6">
-        <div class="col-8 txt m-txt_heavy m-txt_alignCenter mt-4">
-          <div class="form-horizontal">
-            <div class="input-group">
-              <input type="text"  id="breed" class="form-control" placeholder="Type of Breed...">
-              <span class="input-group-btn">
-                <!-- <button class="btn btn-light" type="button">Breed</button> -->
-              </span>
-            </div>
-          </div>
-        </div>
-        <div class="col-4">
+
+      <div class="offset-md-2 col-md-2 mt-4">
+        <h5></h5>
+        <div class="form-horizontal ml-4">
           <div class="input-group">
-            <input type="text" id="zip" class="form-control" placeholder="Zip code">
+            <input type="text" id="breed" class="form-control" placeholder="Type of Breed...">
           </div>
         </div>
       </div>
 
-      <div class="col-6">
-        <div class="row">
-          <div class="col-3 txt m-txt_heavy m-txt_alignCenter">
+
+      <div class="col-md-2 mt-4">
+        <h5></h5>
+        <div class="input-group">
+          <input type="text" id="zip" class="form-control" placeholder="Zip code">
+        </div>
+      </div>
+
+      <div class="col-md-2 txt">
+        
+        <div class="dropdown mr-4">
             <h5>Gender</h5>
-            <div class="dropdown">
-                <a class="btn btn-light dropdown-toggle" href="#" role="button" id="GenderDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Any
-                </a>
-              
-                <div class="dropdown-menu one" aria-labelledby="dropdownMenuLink">
-                  <a class="dropdown-item gender" href="#">Male</a>
-                  <a class="dropdown-item gender" href="#">Female</a>
-                </div>
-              </div>
+          <a class="btn btn-light dropdown-toggle btn-block text-right" href="#" role="button" id="GenderDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
+            Any
+          </a>
 
+          <div class="dropdown-menu one" aria-labelledby="dropdownMenuLink">
+            <a class="dropdown-item gender" href="#">Male</a>
+            <a class="dropdown-item gender" href="#">Female</a>
           </div>
-
-          <div class="col-2 txt m-txt_heavy m-txt_uppercase m-txt_alignCenter mb-4">
-            <h5>Age</h5>
-
-          
-            <div class="dropdown show">
-                <a class="btn btn-light dropdown-toggle" href="#" role="button" id="AgeDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Any
-                </a>
-              
-                <div class="dropdown-menu" id="Age" aria-labelledby="dropdownMenuLink">
-                  <p  class="dropdown-item age" href="#">Puppy</a>
-                  <p class="dropdown-item age" href="#">Young</a>
-                  <p class="dropdown-item age" href="#">Adult</a>
-                  <p class="dropdown-item age" href="#">Senior</a>
-                </div>
-              </div>
-          </div>
-          
-          <div class="col-2 txt m-txt_heavy m-txt_alignCenter mt-4 ml-3">
-          <button class="btn btn-light" id="go" type="button">Go!</button>
         </div>
-          </div>
 
       </div>
 
+      <div class="col-md-1 mb-4">
+        <div class="dropdown show mr-4">
+            <h5>Age</h5>
+          <a class="btn btn-light dropdown-toggle btn-block text-right" href="#" role="button" id="AgeDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="true">
+            Any
+          </a>
 
+          <div class="dropdown-menu" id="Age" aria-labelledby="dropdownMenuLink">
+            <p class="dropdown-item age" href="#">Puppy</a>
+              <p class="dropdown-item age" href="#">Young</a>
+                <p class="dropdown-item age" href="#">Adult</a>
+                  <p class="dropdown-item age" href="#">Senior</a>
+          </div>
+        </div>
+      </div>
 
-      
+      <div class="col-md-1 mt-4">
+        <h5></h5>
+        <button class="btn btn-light" id="go" type="button">Go!</button>
+      </div>
+
       <script src="Assets/javascript/landing.js"></script>
       <script src="Assets/javascript/mutt.js"></script>
     </div>
