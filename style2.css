@@ -5,20 +5,14 @@ body{
     font: bold;
 }
 h1 {
-    font-size: 80pt !important;
+    font-size: 60pt !important;
     font-family: 'Courgette', cursive;
     font-family: 'Satisfy', cursive;
     font-family: 'Kaushan Script', cursive !important;
     font-family: 'Fredoka One', cursive;
     color: rgb(255, 238, 0) !important;
-    margin-top: 2;
 }
 
 h5{
     color: yellow;
-}
-
- @media screen and (max-width: 768px) {
-h1{
-    font-size: 40pt;}
 }
