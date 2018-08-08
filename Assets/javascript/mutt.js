@@ -48,6 +48,8 @@ $(document).ready(function(){
     //Array holding the size of each dog
     var dogSize = [];
 
+    var contactInfo = [];
+
     //petfinder api call
     var petUrl = "http://api.petfinder.com/pet.find";
     var petApiKey = "aaf7ea34460505b8e7841f0512aae7a4"
@@ -161,6 +163,7 @@ $(document).ready(function(){
 
                 //the array of this unique dog's images are pushed to a parent array, with an index corresponding to that dog's data-index
                 modalDogImages.push(thisDogPics);
+                contactInfo.push(j.contact.email.$t);
             })
         });
     });
@@ -559,4 +562,11 @@ $(document).ready(function(){
         {
           $("#myCarousel").carousel('next');
         } )
+
+        $(document).on("click", ".approveBtn", function(){
+          var contactIndex = $(".is-selected").attr("data-index");
+          $("#contactInfo").html(contactInfo[contactIndex])
+          console.log(contactInfo[contactIndex])
+        })
+        console.log(contactInfo);
     })
