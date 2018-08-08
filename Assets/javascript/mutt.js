@@ -462,7 +462,7 @@ $(document).ready(function(){
         $("#dogAge").text("Age: " + dogAge[currentIndex]);
 
         //Appends the description of the dog to the modal
-        $("#dogDescription").text(dogDescription[currentIndex]);
+        $("#dogDescription").html(dogDescription[currentIndex]);
 
         $("#likeButtonDiv").html(likeButton);
 
