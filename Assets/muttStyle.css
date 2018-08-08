@@ -106,6 +106,7 @@ height: 60px;
 
   .modal_content {
       width: auto;
+      
   }
 
   @media (max-width: 767.98px) {
@@ -137,11 +138,15 @@ height: 60px;
         padding: 20px;
         height: 200px;
         overflow-y: scroll;
+     
         }
  } 
 
  #innerCarousel {
     margin: 0;
-    width: 100%
+    width: 100%;
+    
   }
+
+
 
