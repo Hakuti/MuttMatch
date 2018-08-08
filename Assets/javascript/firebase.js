@@ -19,20 +19,44 @@
     // FUNCTIONS + EVENTS
     // --------------------------------------------------------------------------------
 
+      // database.ref().on("child_added", function(snapshot){
+      //   console.log(snapshot.val());
+      //   console.log(snapshot.key);
+      // })
+
     // On Click of Button
     // $(".btn btn-light").on("click", function() {
 
-        $(document).on("click", "i", function(){
-        console.log("I've been clicked");
+      $(document).on("click", "i", function(){
+        var initialVal = 0;
+        console.log("clicked");
+          var dogId = $(this).attr("data-id");
+          database.ref().on("value", function(snap){
+            console.log(snap.val())
+            console.log(snap.key);
+            if (snap.key.indexOf(dogId) == -1){
+              database.ref().update({
+                [dogId]: initialVal
+              })
+            }
+            
+            // else {
+            //   database.ref().update({
+            //   [dogId]: 0
+            //   })
+            // }
+            
+          })
       // Add to clickCounter
       clickCounter++;
 
       //  Store Click Data to Firebase in a JSON property called clickCount
       // Note how we are using the Firebase .set() method
-      database.ref().set({
-        clickCount: clickCounter
-      });
+      // database.ref().update({
+      //   [dogId]: clickCounter
+      // });
     });
+
 
     // MAIN PROCESS + INITIAL CODE
     // --------------------------------------------------------------------------------
@@ -40,23 +64,23 @@
     // Using .on("value", function(snapshot)) syntax will retrieve the data
     // from the database (both initially and every time something changes)
     // This will then store the data inside the variable "snapshot". We could rename "snapshot" to anything.
-    database.ref().on("value", function(snapshot) {
+    // database.ref().on("value", function(snapshot) {
 
-      // Then we console.log the value of snapshot
-      console.log(snapshot.val());
+    //   // Then we console.log the value of snapshot
+    //   console.log(snapshot.val());
 
-      // Then we change the html associated with the number.
-      $("#click-value").text(snapshot.val().clickCount);
+    //   // Then we change the html associated with the number.
+    //   // $("#click-value").text(snapshot.val().clickCount);
 
-      // Then update the clickCounter variable with data from the database.
-      clickCounter = snapshot.val().clickCount;
+    //   // Then update the clickCounter variable with data from the database.
+    //   clickCounter = snapshot.val().clickCount;
 
-      // If there is an error that Firebase runs into -- it will be stored in the "errorObject"
-      // Again we could have named errorObject anything we wanted.
-    }, function(errorObject) {
+    //   // If there is an error that Firebase runs into -- it will be stored in the "errorObject"
+    //   // Again we could have named errorObject anything we wanted.
+    // }, function(errorObject) {
 
-      // In case of error this will print the error
-      console.log("The read failed: " + errorObject.code);
-    });
+    //   // In case of error this will print the error
+    //   console.log("The read failed: " + errorObject.code);
+    // });
 
   
