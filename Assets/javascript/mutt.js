@@ -51,7 +51,7 @@ $(document).ready(function(){
     var contactInfo = [];
 
     //petfinder api call
-    var petUrl = "http://api.petfinder.com/pet.find";
+    var petUrl = "https://api.petfinder.com/pet.find";
     var petApiKey = "aaf7ea34460505b8e7841f0512aae7a4"
     $.ajax({
         url: petUrl,
@@ -168,7 +168,7 @@ $(document).ready(function(){
         });
     });
     var searchString;
-      var ebayURL = "http://svcs.ebay.com/services/search/FindingService/v1";
+      var ebayURL = "https://svcs.ebay.com/services/search/FindingService/v1";
       ebayURL += "?OPERATION-NAME=findCompletedItems";
       ebayURL += "&SERVICE-VERSION=1.13.0";
       ebayURL += "&SERVICE-NAME=FindingService";
@@ -195,7 +195,7 @@ $(document).ready(function(){
           })
       });
 
-      ebayURL = "http://svcs.ebay.com/services/search/FindingService/v1";
+      ebayURL = "https://svcs.ebay.com/services/search/FindingService/v1";
       ebayURL += "?OPERATION-NAME=findCompletedItems";
       ebayURL += "&SERVICE-VERSION=1.13.0";
       ebayURL += "&SERVICE-NAME=FindingService";
@@ -221,7 +221,7 @@ $(document).ready(function(){
       });
       
       
-      ebayURL = "http://svcs.ebay.com/services/search/FindingService/v1";
+      ebayURL = "https://svcs.ebay.com/services/search/FindingService/v1";
       ebayURL += "?OPERATION-NAME=findCompletedItems";
       ebayURL += "&SERVICE-VERSION=1.13.0";
       ebayURL += "&SERVICE-NAME=FindingService";
@@ -247,7 +247,7 @@ $(document).ready(function(){
         // console.log(mediumDogItem)
       });
 
-      ebayURL = "http://svcs.ebay.com/services/search/FindingService/v1";
+      ebayURL = "https://svcs.ebay.com/services/search/FindingService/v1";
       ebayURL += "?OPERATION-NAME=findCompletedItems";
       ebayURL += "&SERVICE-VERSION=1.13.0";
       ebayURL += "&SERVICE-NAME=FindingService";
@@ -271,7 +271,7 @@ $(document).ready(function(){
             itemURL: response.findCompletedItemsResponse[0].searchResult[0].item[0].viewItemURL[0]
         })
       });
-      ebayURL = "http://svcs.ebay.com/services/search/FindingService/v1";
+      ebayURL = "https://svcs.ebay.com/services/search/FindingService/v1";
       ebayURL += "?OPERATION-NAME=findCompletedItems";
       ebayURL += "&SERVICE-VERSION=1.13.0";
       ebayURL += "&SERVICE-NAME=FindingService";
@@ -295,7 +295,7 @@ $(document).ready(function(){
             itemURL: response.findCompletedItemsResponse[0].searchResult[0].item[0].viewItemURL[0]
         })
       });
-      ebayURL = "http://svcs.ebay.com/services/search/FindingService/v1";
+      ebayURL = "https://svcs.ebay.com/services/search/FindingService/v1";
       ebayURL += "?OPERATION-NAME=findCompletedItems";
       ebayURL += "&SERVICE-VERSION=1.13.0";
       ebayURL += "&SERVICE-NAME=FindingService";
@@ -320,7 +320,7 @@ $(document).ready(function(){
         })
       });
 
-      ebayURL = "http://svcs.ebay.com/services/search/FindingService/v1";
+      ebayURL = "https://svcs.ebay.com/services/search/FindingService/v1";
       ebayURL += "?OPERATION-NAME=findCompletedItems";
       ebayURL += "&SERVICE-VERSION=1.13.0";
       ebayURL += "&SERVICE-NAME=FindingService";
@@ -344,7 +344,7 @@ $(document).ready(function(){
             itemURL: response.findCompletedItemsResponse[0].searchResult[0].item[0].viewItemURL[0]
         })
       });
-      ebayURL = "http://svcs.ebay.com/services/search/FindingService/v1";
+      ebayURL = "https://svcs.ebay.com/services/search/FindingService/v1";
       ebayURL += "?OPERATION-NAME=findCompletedItems";
       ebayURL += "&SERVICE-VERSION=1.13.0";
       ebayURL += "&SERVICE-NAME=FindingService";
@@ -368,7 +368,7 @@ $(document).ready(function(){
             itemURL: response.findCompletedItemsResponse[0].searchResult[0].item[0].viewItemURL[0]
         })
       });
-      ebayURL = "http://svcs.ebay.com/services/search/FindingService/v1";
+      ebayURL = "https://svcs.ebay.com/services/search/FindingService/v1";
       ebayURL += "?OPERATION-NAME=findCompletedItems";
       ebayURL += "&SERVICE-VERSION=1.13.0";
       ebayURL += "&SERVICE-NAME=FindingService";
