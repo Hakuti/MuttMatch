@@ -43,15 +43,9 @@
             [dogId]: initialVal
             })
           }
+          $(".click-value").text("Likes " + snap.child(dogId).val())
         })
-            
-            // else {
-            //   database.ref().update({
-            //   [dogId]: 0
-            //   })
-            // }
-            
-          })
+      })
       // Add to clickCounter
       // clickCounter++;
 
